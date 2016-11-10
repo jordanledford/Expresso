@@ -9,6 +9,6 @@ import java.util.List;
  * Created by rdw1995 on 11/10/16.
  */
 public interface UserRepo extends CrudRepository<User, Integer> {
-    List<User>
+    List<User> findByName (String name);
 
 }

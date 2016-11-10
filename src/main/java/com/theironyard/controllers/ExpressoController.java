@@ -32,5 +32,4 @@ public class ExpressoController {
     public String home(Model model, Shop shop, HttpSession session, String search){
 
     }
-
 }
