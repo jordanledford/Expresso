@@ -17,10 +17,10 @@ const AppRouter = Backbone.Router.extend({
 
   showSubmitView: function(){
      ReactDOM.render(<SubmitView/>, document.querySelector('#app-container'))
- }
+   },
   showAuthPage: function(){
      ReactDom.render(<AuthView/>, document.querySelector('#app-container'));
- }
+   },
   showHomePage: function(){
     ReactDOM.render(<HomeView />, document.querySelector('#app-container'));
   },

@@ -10,7 +10,7 @@ const HomeView = React.createClass({
         <div className="jumbotron jumbotron-fluid">
           <div className="container">
             <h1 className="display-3"> ☕ Expresso ☕ </h1>
-            <p className="lead">Expresso helps you find and review coffee shops near you.</p>
+            <h3 className="lead">Expresso helps you find and review coffee shops near you.</h3>
           </div>
         </div>
 
@@ -28,42 +28,7 @@ const HomeView = React.createClass({
                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>
               </div>
             </div>
-
-            <div className="col-lg-3 col-md-4 col-xs-1">
-              <div>
-                {/* insert this.props data  */}
-                <img src="https://unsplash.it/g/100/100"/>
-              </div>
-              <div className="col-md-6">
-                <h3>this.props.name</h3>
-                <p>this.props.bio</p>
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-              </div>
-            </div>
-
-            <div className="col-lg-3 col-md-4 col-xs-1">
-              <div>
-                {/* insert this.props data  */}
-                <img src="https://unsplash.it/g/100/100"/>
-              </div>
-              <div className="col-md-6">
-                <h3>this.props.name</h3>
-                <p>this.props.bio</p>
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-              </div>
-            </div>
-
-            <div className="col-lg-3 col-md-4 col-xs-1">
-              <div>
-                {/* insert this.props data  */}
-                <img src="https://unsplash.it/g/100/100"/>
-              </div>
-              <div className="col-md-6">
-                <h3>this.props.name</h3>
-                <p>this.props.bio</p>
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-              </div>
-            </div>
+            <ProductView />
           </div>
 
         </div>
@@ -73,4 +38,27 @@ const HomeView = React.createClass({
   },
 });
 
-export { HomeView };
+const ProductView = React.createClass({
+  getInitialState: function(){
+    let startingState = {
+      // add shit here
+    }
+    return startingState;
+  },
+
+  render: function(){
+    <div className="col-lg-3 col-md-4 col-xs-1">
+      <div>
+        {/* need to insert this.props.data  */}
+        <img src="https://unsplash.it/g/100/100"/>
+      </div>
+      <div className="col-md-6">
+        <h3>this.props.name</h3>
+        <p>this.props.bio</p>
+        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+      </div>
+    </div>
+  }
+});
+
+export { HomeView, ProductView };

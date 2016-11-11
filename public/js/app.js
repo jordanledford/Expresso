@@ -1,1 +1,1 @@
-console.error("SyntaxError: /Users/Dolpator/TIY/assignments/CoffeeExpresso/src-client/scripts/app.js: Unexpected token, expected , (21:2) while parsing file: /Users/Dolpator/TIY/assignments/CoffeeExpresso/src-client/scripts/app.js");
+console.error("Error: Cannot find module './authview.js' from '/Users/j/tiy/assignments/Expresso/src-client/scripts'");
