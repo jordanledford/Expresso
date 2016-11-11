@@ -13,12 +13,12 @@ const AuthView = React.createClass({
                         <a href="#"><i class="fa fa-home fa-2x " aria-hidden="true"></i></a>
                         <h2 class="">Login or Sign Up</h2>
                      <div class="form-group">
-                        <label for=name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                        <label for = "name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name" />
                      </div>
                      <div class="form-group">
                         <label for="pw">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter Password">
+                        <input type="password" class="form-control" id="password" placeholder="Enter Password"/>
                      </div>
                         <button type="submit" class="btn btn-default">Submit</button>
                   </form>
