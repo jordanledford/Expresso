@@ -1,1 +1,1 @@
-console.error("Error: Cannot find module './authview.js' from '/Users/j/tiy/assignments/Expresso/src-client/scripts'");
+console.error("Error: Cannot find module './authview.js' from '/Users/Dolpator/TIY/assignments/CoffeeExpresso/src-client/scripts'");
