@@ -1,1 +1,1 @@
-console.error("Error: Cannot find module './authview.js' from '/Users/Dolpator/TIY/assignments/CoffeeExpresso/src-client/scripts'");
+console.error("SyntaxError: /Users/Dolpator/TIY/assignments/CoffeeExpresso/src-client/scripts/home-view.js: Unexpected token, expected , (12:2) while parsing file: /Users/Dolpator/TIY/assignments/CoffeeExpresso/src-client/scripts/home-view.js");
