@@ -38,7 +38,7 @@ public class ExpressoController {
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public ArrayList<Shop> home(Model model, Shop shop, HttpSession session, String search){
         String name = (String) session.getAttribute("username");
-        User user = (User) users.findByName(name);
+        User user = (User) users.findFirstByName(name);
 
         ArrayList<Shop> shopList;
 
@@ -57,7 +57,7 @@ public class ExpressoController {
     @RequestMapping(path = "/shops", method = RequestMethod.POST)
     public Shop addShop (HttpSession session, @RequestBody Shop shop) throws Exception {
         String name = (String) session.getAttribute("username");
-        User user = (User) users.findByName(name);
+        User user = (User) users.findFirstByName(name);
         if (user == null) {
             throw new Exception("Not logged in.");
         }
@@ -67,7 +67,7 @@ public class ExpressoController {
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public User addUser(HttpSession session, @RequestBody User user) throws Exception {
-        User userFromDb = (User) users.findByName(user.getName());
+        User userFromDb = (User) users.findFirstByName(user.getName());
         if (userFromDb == null) {
             users.save(user);
         }
