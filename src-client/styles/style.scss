@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway|Raleway+Dots');
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "../../node_modules/font-awesome/scss/font-awesome.scss";
+
+
 * {
 	box-sizing: border-box;
 }
 
-body{
+body {
 	font-family: 'Raleway', sans-serif;
 	background: #BCAAA4;
 }
@@ -27,4 +31,8 @@ body{
 	h3 {
 	 color: #3E2723;
 	}
+}
+#submit-form, #auth-form{
+	font-family: 'Raleway', sans-serif;
+	background: #BCAAA4;
 }
