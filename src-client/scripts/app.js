@@ -7,7 +7,7 @@ const AppRouter = Backbone.Router.extend({
   routes: {
     "": "showHomePage"
   },
-  
+
   showHomePage: function(){
     ReactDOM.render(<HomeView />, document.querySelector('#app-container'));
   },
@@ -16,4 +16,4 @@ const AppRouter = Backbone.Router.extend({
    Backbone.history.start();
   }
 })
-const application = new AppRouter
+const application = new AppRouter;
