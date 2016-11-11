@@ -11,6 +11,6 @@ import java.util.List;
  */
 public interface ShopRepo extends CrudRepository <Shop, Integer> {
     List<Shop> findByNameContainingIgnoreCaseOrLocationOrHoursContainingIgnoreCase (String name, String location, String hours);
-    List<Shop> findByUser (User user);
+//    List<Shop> findByUser (User user);
 
 }
