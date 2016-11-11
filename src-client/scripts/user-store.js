@@ -1,8 +1,9 @@
 const Backbone = require('backbone')
 import {UserModel, UserCollection} from './user-models.js'
+import $ from 'jquery'
 
 const STORE = {
-   _coffeeData: {
+      coffeeData: {
       coffeeName: '',
       coffeeImage: '',
       coffeeRating: '',
@@ -11,10 +12,10 @@ const STORE = {
 
    setStore: function(){
       return
-   }
+   },
 
    getCoffeeData: function(){
       return
-   },
+   }
 }
 module.exports = STORE

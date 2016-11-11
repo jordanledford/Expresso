@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Backbone from 'backbone';
+import $ from 'jquery'
 
 const HomeView = React.createClass({
-   getInitialState: function(){
-      STORE.set()
-      STORE.set()
-      STORE.SET('coffeeShopData', new UserCollection())
-   }
+   // getInitialState: function(){
+   // //    STORE.set()
+   // //    STORE.set()
+   // //    STORE.SET('coffeeShopData', new UserCollection())
+   // },
 
   render: function() {
     return (
@@ -23,7 +24,7 @@ const HomeView = React.createClass({
         <div className="container">
 
           <div className="row">
-            <div className="col-lg-3 col-md-4 col-xs-1">
+            <div className="col-lg-3 col-md-4 col-xs-12">
               <div>
                 {/* insert this.props data  */}
                 <img src="https://unsplash.it/g/100/100"/>
@@ -31,7 +32,7 @@ const HomeView = React.createClass({
               <div className="col-md-6">
                 <h3>this.props.name</h3>
                 <p>this.props.bio</p>
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                <i className="fa fa-thumbs-up" aria-hidden="true"></i>
               </div>
             </div>
             <ProductView />
@@ -41,7 +42,7 @@ const HomeView = React.createClass({
 
       </div>
     );
-  },
+  }
 });
 
 const ProductView = React.createClass({
@@ -53,18 +54,21 @@ const ProductView = React.createClass({
   },
 
   render: function(){
-    <div className="col-lg-3 col-md-4 col-xs-1">
-      <div>
-        {/* need to insert this.props.data  */}
-        <img src="https://unsplash.it/g/100/100"/>
-      </div>
-      <div className="col-md-6">
-        <h3>this.props.name</h3>
-        <p>this.props.bio</p>
-        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-      </div>
-    </div>
+     return(
+          <div className="col-lg-3 col-md-4 col-xs-12">
+            <div>
+              {/* need to insert this.props.data  */}
+              <img src="https://unsplash.it/g/100/100"/>
+            </div>
+            <div className="col-md-6">
+              <h3>this.props.name</h3>
+              <p>this.props.bio</p>
+              <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+            </div>
+          </div>
+   )
   }
+
 });
 
 export { HomeView, ProductView };
