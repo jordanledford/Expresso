@@ -6,6 +6,7 @@ import com.theironyard.services.LikeRepo;
 import com.theironyard.services.ShopRepo;
 import com.theironyard.services.UserRepo;
 import org.apache.catalina.valves.rewrite.RewriteCond;
+import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.RequestEntity;
@@ -16,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,21 +36,37 @@ public class ExpressoController {
     @Autowired
     UserRepo users;
 
-    @Autowired
-    LikeRepo likes;
+//    @Autowired
+//    LikeRepo likes;
+
+    Server h2;
+
+    @PostConstruct
+    public void init() throws SQLException {
+        h2 = Server.createWebServer().start();
+        if (shops.count() == 0) {
+            Shop shop = new Shop("Black Tap", "Charleston", "6-8", "http://www.blacktapcoffee.com", "this is an image", "preettty cool");
+            shops.save(shop);
+        }
+    }
+
+    @PreDestroy
+    public void destroy() {
+        h2.stop();
+    }
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
-    public ArrayList<Shop> home(Model model, Shop shop, HttpSession session, String search){
+    public Iterable<Shop> home(Model model, Shop shop, HttpSession session, String search){
         String name = (String) session.getAttribute("username");
         User user = (User) users.findFirstByName(name);
 
-        ArrayList<Shop> shopList;
+        Iterable<Shop> shopList;
 
         if (search != null){
-            shopList = (ArrayList<Shop>) shops.findByNameContainingIgnoreCaseOrLocationOrHoursContainingIgnoreCase(search, search, search);
+            shopList = (Iterable<Shop>) shops.findByNameContainingIgnoreCaseOrLocationOrHoursContainingIgnoreCase(search, search, search);
         }
         else {
-            shopList = (ArrayList<Shop>) shops.findAll();
+            shopList = (Iterable<Shop>) shops.findAll();
         }
 
         model.addAttribute("username",user);
