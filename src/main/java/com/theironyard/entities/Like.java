@@ -14,7 +14,4 @@ public class Like {
     @Id
     @GeneratedValue
     int id;
-
-
-
 }

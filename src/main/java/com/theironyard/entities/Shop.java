@@ -30,6 +30,9 @@ public class Shop {
     @Column(nullable = false)
     String image;
 
+    @Column(nullable = false)
+    String info;
+
     public Shop() {
     }
 
@@ -65,6 +68,14 @@ public class Shop {
         return image;
     }
 
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
     public void setImage(String image) {
         this.image = image;
     }
@@ -73,21 +84,23 @@ public class Shop {
         this.website = website;
     }
 
-    public Shop(int id, String name, String location, String hours, String website, String image) {
+    public Shop(int id, String name, String location, String hours, String website, String image, String info) {
         this.id = id;
         this.name = name;
         this.location = location;
         this.hours = hours;
         this.website = website;
         this.image = image;
+        this.info = info;
     }
 
-    public Shop(String name, String location, String hours, String website, String image) {
+    public Shop(String name, String location, String hours, String website, String image, String info) {
         this.name = name;
         this.location = location;
         this.hours = hours;
         this.website = website;
         this.image = image;
+        this.info = info;
     }
 }
 
