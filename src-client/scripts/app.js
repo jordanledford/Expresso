@@ -1,30 +1,32 @@
-import ReactDOM from 'react-dom';
-import React from 'react';
-import Backbone from 'backbone';
-import HomeView from './home-view.js';
+const ReactDOM = require('react-dom');
+const React = require('react')
+const Backbone = require('backbone');
 
-const containerEl = document.querySelector('#app-container');
+import InfoView from './info-view.js'
+import SubmitView from './submit-view.js'
+import AuthView from './authview.js'
+import HomeView from './home-view.js'
+
 const AppRouter = Backbone.Router.extend({
   routes: {
-    "": "showHomePage",
-    "/shop/:id": "showThisShop",
-    "/login": "loginPage"
+     "info" :  "showInfoPage",
+     "submit" : "showSubmitView",
+     "auth": "showAuthPage",
+    "": "showHomePage"
   },
 
+  showSubmitView: function(){
+     ReactDOM.render(<SubmitView/>, document.querySelector('#app-container'))
+   },
+  showAuthPage: function(){
+     ReactDom.render(<AuthView/>, document.querySelector('#app-container'));
+   },
   showHomePage: function(){
-    // add fetch requests and logic for data
-    ReactDOM.render(<HomeView/>, containerEl);
-  },
-  showOneShop: function(){
-    // add logic for new view and create new view (if time allows)
-  },
-  loginPage: function(){
-    ReactDOM.render(<LoginView/>, containerEl);
+    ReactDOM.render(<HomeView />, document.querySelector('#app-container'));
   },
 
   initialize: function(){
    Backbone.history.start();
   }
-});
-
+})
 const application = new AppRouter;
