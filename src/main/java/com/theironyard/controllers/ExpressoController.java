@@ -47,6 +47,7 @@ public class ExpressoController {
         if (shops.count() == 0) {
             User user = new User("Bekah", PasswordStorage.createHash("TrumpTrain"));
             users.save(user);
+            shops.save(new Shop("Starbucks Coffee", "King Street - Charleston, SC", "5am - 10pm", "https://www.starbucks.com/", "https://www.google.com/search?q=starbucks&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiVncPQjqTQAhVixlQKHcKjCIMQ_AUICigD&biw=1280&bih=703#imgrc=kK0DWhTQx81B6M%3A", "Seattle-based coffeehouse chain known for its signature roasts, light bites and WiFi availability."));
             shops.save(new Shop("Collective Coffee Co", "Mt. Pleasant, SC", "7am - 5pm", "http://collective-coffee.com/", "https://static.squarespace.com/static/50f1db62e4b0ceb75bca6fdd/t/51044ad8e4b00bb1fb60cc11/1359235800677/Counter%20Collective%20Fix-3220%20bg.jpg", "A modern feel with quaint taste."));
         }
     }
