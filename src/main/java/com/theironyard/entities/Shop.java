@@ -33,6 +33,9 @@ public class Shop {
     @Column(nullable = false)
     String info;
 
+    @Column(nullable = false)
+    int likes;
+
     public Shop() {
     }
 
@@ -92,7 +95,15 @@ public class Shop {
         this.website = website;
     }
 
-    public Shop(int id, String name, String location, String hours, String website, String image, String info) {
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public Shop(int id, String name, String location, String hours, String website, String image, String info, int likes, User user) {
         this.id = id;
         this.name = name;
         this.location = location;
@@ -100,16 +111,31 @@ public class Shop {
         this.website = website;
         this.image = image;
         this.info = info;
+        this.likes = likes;
+        this.user = user;
     }
 
-    public Shop(String name, String location, String hours, String website, String image, String info) {
+    public Shop(int id, String name, String location, String hours, String website, String image, String info, int likes) {
+        this.id = id;
         this.name = name;
         this.location = location;
         this.hours = hours;
         this.website = website;
         this.image = image;
         this.info = info;
+        this.likes = likes;
     }
+
+    public Shop(String name, String location, String hours, String website, String image, String info, int likes) {
+        this.name = name;
+        this.location = location;
+        this.hours = hours;
+        this.website = website;
+        this.image = image;
+        this.info = info;
+        this.likes = likes;
+    }
+
 
     @ManyToOne
     User user;
