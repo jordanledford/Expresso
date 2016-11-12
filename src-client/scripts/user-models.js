@@ -1,5 +1,5 @@
-const Backbone = require('backbone');
-import $ from 'jquery'
+import Backbone from 'backbone';
+import $ from 'jquery';
 
 const UserModel = Backbone.Model.extend({
    url: '',

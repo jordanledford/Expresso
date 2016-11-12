@@ -27,4 +27,4 @@ const AuthView = React.createClass({
             )
          }
 })
-module.export = AuthView
+module.exports = AuthView
