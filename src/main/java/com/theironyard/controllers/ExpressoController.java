@@ -5,11 +5,14 @@ import com.theironyard.entities.User;
 import com.theironyard.services.LikeRepo;
 import com.theironyard.services.ShopRepo;
 import com.theironyard.services.UserRepo;
+import com.theironyard.utitilies.PasswordStorage;
 import org.apache.catalina.valves.rewrite.RewriteCond;
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,17 +39,16 @@ public class ExpressoController {
     @Autowired
     UserRepo users;
 
-//    @Autowired
-//    LikeRepo likes;
-
     Server h2;
 
     @PostConstruct
-    public void init() throws SQLException {
+    public void init() throws SQLException, PasswordStorage.CannotPerformOperationException {
         h2 = Server.createWebServer().start();
+
         if (shops.count() == 0) {
-            Shop shop = new Shop("Black Tap", "Charleston", "6-8", "http://www.blacktapcoffee.com", "this is an image", "preettty cool");
-            shops.save(shop);
+            User user = new User("Bekah", PasswordStorage.createHash("TrumpTrain"));
+            users.save(user);
+            shops.save(new Shop("Collective Coffee Co", "Mt. Pleasant, SC", "7am - 5pm", "http://collective-coffee.com/", "https://static.squarespace.com/static/50f1db62e4b0ceb75bca6fdd/t/51044ad8e4b00bb1fb60cc11/1359235800677/Counter%20Collective%20Fix-3220%20bg.jpg", "A modern feel with quaint taste."))
         }
     }
 
@@ -55,53 +57,34 @@ public class ExpressoController {
         h2.stop();
     }
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
-    public Iterable<Shop> home(Model model, Shop shop, HttpSession session, String search){
-        String name = (String) session.getAttribute("username");
-        User user = (User) users.findFirstByName(name);
-
-        Iterable<Shop> shopList;
-
-        if (search != null){
-            shopList = (Iterable<Shop>) shops.findByNameContainingIgnoreCaseOrLocationOrHoursContainingIgnoreCase(search, search, search);
+    @RequestMapping(path = "/user", method = RequestMethod.POST)
+    public ResponseEntity<User> addUser (HttpSession session, @RequestBody User user) throws PasswordStorage.CannotPerformOperationException, PasswordStorage.InvalidHashException {
+        User userFromDb = users.findFirstByName(user.getName());
+        if (userFromDb == null){
+            user.setPassword(PasswordStorage.createHash(user.getPassword()));
+            users.save(user);
         }
-        else {
-            shopList = (Iterable<Shop>) shops.findAll();
+        else if (!PasswordStorage.verifyPassword(user.getPassword(), userFromDb.getPassword())){
+            return new ResponseEntity<User>(HttpStatus.FORBIDDEN);
         }
+        session.setAttribute("name", user.getName());
+        return new ResponseEntity<User>(user, HttpStatus.OK);
+    }
 
-        model.addAttribute("username",user);
-        model.addAttribute("shops", shopList);
-        return shopList;
+    @RequestMapping(path = "/user", method = RequestMethod.GET)
+    public User getUser (HttpSession session){
+        String name = (String) session.getAttribute("name");
+        return users.findFirstByName("name");
     }
 
     @RequestMapping(path = "/shops", method = RequestMethod.POST)
-    public Shop addShop (HttpSession session, @RequestBody Shop shop) throws Exception {
-        String name = (String) session.getAttribute("username");
-        User user = (User) users.findFirstByName(name);
-        if (user == null) {
-            throw new Exception("Not logged in.");
+    public ResponseEntity<Shop> addShop (HttpSession session, @RequestBody Shop shop){
+        String name = (String) session.getAttribute("name");
+        if (name == null){
+            return new ResponseEntity<Shop>(HttpStatus.FORBIDDEN);
         }
-        shops.save(shop);
-        return shop;
-    }
-
-    @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public User addUser(HttpSession session, @RequestBody User user) throws Exception {
-        User userFromDb = (User) users.findFirstByName(user.getName());
-        if (userFromDb == null) {
-            users.save(user);
-        }
-        else if (!user.getPassword().equals(userFromDb.getPassword())){
-            throw new Exception("Incorrect password - please try again!");
-        }
-        session.setAttribute("name", user.getName());
-        return user;
-    }
-
-
-    @RequestMapping(path = "/logout", method = RequestMethod.POST)
-    public String logout(HttpSession session){
-        session.invalidate();
-        return "BYE BTICH! SEE YOU OVER THE WALL! #SALTY";
+        shop.setUser(users.findFirstByName(name));
+        return new ResponseEntity<Shop>(shops.save(shop), HttpStatus.OK);
     }
 }
+
