@@ -76,7 +76,7 @@ public class ExpressoController {
         return users.findFirstByName(name);
     }
 
-    @RequestMapping(path = "/shops", method = RequestMethod.POST)
+    @RequestMapping(path = "/shop", method = RequestMethod.POST)
     public ResponseEntity<Shop> addShop (HttpSession session, @RequestBody Shop shop){
         String name = (String) session.getAttribute("name");
         if (name == null){
@@ -86,25 +86,35 @@ public class ExpressoController {
         return new ResponseEntity<Shop>(shops.save(shop), HttpStatus.OK);
     }
 
-//    @RequestMapping(path = "/edit-shops", method = RequestMethod.POST)
-//    public ResponseEntity<Shop> editShop (HttpSession session, @RequestBody Shop shop){
-//
-//    }
-//
-//    @RequestMapping(path = "/delete-shops", method = RequestMethod.POST)
-//    public ResponseEntity<Shop> deleteShop (HttpSession session, @RequestBody Shop shop){
-//
-//    }
-
-
-    @RequestMapping(path = "/shops", method = RequestMethod.GET)
-    public List<Shop> getShops (HttpSession session) {
+    @RequestMapping(path = "/edit-shop", method = RequestMethod.POST)
+    public ResponseEntity<Shop> editShop (HttpSession session, @RequestBody Shop shop){
         String name = (String) session.getAttribute("name");
-        User user = users.findFirstByName(name);
+        if (name == null){
+            return new ResponseEntity<Shop>(HttpStatus.FORBIDDEN);
+        }
+        if (!shops.findOne(shop.getId()).getUser().getName().equals(name)){
+            return new ResponseEntity<Shop>(HttpStatus.FORBIDDEN);
+        }
+        shop.setUser(users.findFirstByName(name));
+        return new ResponseEntity<Shop>(shops.save(shop), HttpStatus.OK);
+    }
 
-        ArrayList<Shop> allShops = new ArrayList<>();
-        shops.save(allShops);
-        return allShops;
+    @RequestMapping(path = "/delete-shop", method = RequestMethod.POST)
+    public ResponseEntity<Shop> deleteShop (HttpSession session, @RequestBody Shop shop){
+        String name = (String) session.getAttribute("name");
+        if (name == null){
+            return new ResponseEntity<Shop>(HttpStatus.FORBIDDEN);
+        }
+        if (!shops.findOne(shop.getId()).getUser().getName().equals(name)){
+            return new ResponseEntity<Shop>(HttpStatus.FORBIDDEN);
+        }
+        shops.delete(shop.getId());
+        return new ResponseEntity<Shop>(HttpStatus.OK);
+    }
+
+    @RequestMapping(path = "/shop", method = RequestMethod.GET)
+    public List<Shop> getShops (HttpSession session) {
+         return (List<Shop>) shops.findAll();
     }
 }
 
