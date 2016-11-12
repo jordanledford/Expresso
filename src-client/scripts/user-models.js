@@ -1,11 +1,12 @@
-const Backbone = require('backbone');
+import Backbone from 'backbone';
+import $ from 'jquery';
 
-const UserModel = Backbone.Models.extend({
+const UserModel = Backbone.Model.extend({
    url: '',
 
 })
 
-const UserCollection = Backbone.Collections.extend({
+const UserCollection = Backbone.Collection.extend({
    model: UserModel,
    url: ''
 })

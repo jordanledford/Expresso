@@ -1,9 +1,10 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 const Backbone = require('backbone')
+import $ from 'jquery'
 
 const SubmitView = React.createClass({
-   
+
 
    _submitForm: function(){
       evt.preventDefault()
@@ -34,7 +35,7 @@ const SubmitView = React.createClass({
          return(
             <div className = "row text-center">
                <form className = "col-sm-offset-3 col-sm-6" id = "submit-form">
-                     <a href = "#"><i className = "fa fa-home fa-2x" aria-hidden = "true"></i></a>
+               <a href = "#"><i className = "fa fa-home fa-2x" aria-hidden = "true"></i></a>
                      <h2 className = "">Submit a Coffee Shop</h2>
                   <div className = "form-group">
                      <img src = "https://unsplash.it/g/100/100" />
