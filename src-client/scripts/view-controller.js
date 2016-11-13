@@ -6,16 +6,24 @@ import STORE from './user-store.js'
 
 const AppController = React.createClass({
    getInitialState: function(){
-      let rateState = {
-         rate: 0
-      }
-      return rateState
-   },
+      rate: 0;
+    STORE.setStore('coffeeData', [])
 
+    let initialState = this.getCoffeeData()
+    console.log(initialState)
+    return initialState
+},
+
+componentWillMount: function(){
+   let self = this
+    STORE.onChange(function(){
+      let newState = STORE.getStoreData()
+         self.setState(newState)    })
+},
    render: function(){
       switch(this.props.routedFrom){
          case: "HomeView"
-            return <HomeView />
+            return <HomeView coffeeData = {this.state.coffeeData}/>
             break;
 
          case: "SubmitView"

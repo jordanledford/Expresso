@@ -7,6 +7,9 @@ const ACTIONS = {
    fetchCoffeeData: function(){
       let coffeeCollInstance = new UserCollection()
          coffeeCollInstance.fetch().then(function(){
+            STORE.setStore('coffeeData', coffeeCollInstance.models )
+
+            console.log(coffeeCollInstance)
             STORE.setStore()
       })
    },

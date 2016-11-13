@@ -4,11 +4,6 @@ import Backbone from 'backbone';
 import $ from 'jquery'
 
 const HomeView = React.createClass({
-   // getInitialState: function(){
-   // //    STORE.set()
-   // //    STORE.set()
-   // //    STORE.SET('coffeeShopData', new UserCollection())
-   // },
 
   render: function() {
     return (
