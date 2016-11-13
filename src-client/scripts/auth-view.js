@@ -15,6 +15,7 @@ const AuthView = React.createClass({
 
       ACTIONS.registerUser(newUser)
    },
+   
    render: function(){
 
       return(
