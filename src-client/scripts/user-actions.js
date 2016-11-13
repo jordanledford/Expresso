@@ -2,7 +2,6 @@ const Backbone = require('backbone')
 import STORE from './user-store.js'
 import {UserModel, UserCollection} from './user-models.js'
 import $ from 'jquery'
-import STORE from './user-store.js'
 
 const ACTIONS = {
    registerUser: function(userObj){
@@ -10,24 +9,26 @@ const ACTIONS = {
       userMod.set(userObj)
 
       userMod.save().then(function(serverRes){
-         console.log(serverRes)
+         // console.log(serverRes)
          location.hash = ""
     })
   },
+
    fetchCoffeeData: function(){
       let coffeeCollInstance = new UserCollection()
          coffeeCollInstance.fetch().then(function(){
-            STORE.setStore('coffeeData', coffeeCollInstance.models )
+            STORE.setStore('coffeeShopData', coffeeCollInstance)
 
-            console.log(coffeeCollInstance)
+            console.log('fetch ', coffeeCollInstance)
       })
+      return coffeeCollInstance
    },
 
 
-   createNewCoffeeEntry: function(){
+   createNewCoffeeEntry: function(newEntry){
       let newCoffeeEntry = new UserModel()
-         newCoffeeEntry.set()
-         newCoffeeEntry.save().then(function(servRes){
+          newCoffeeEntry.set(newEntry)
+          newCoffeeEntry.save().then(function(servRes){
            window.location.hash = '';
       })
    }

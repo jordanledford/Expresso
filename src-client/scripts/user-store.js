@@ -1,4 +1,6 @@
-const Backbone = require('backbone')
+import Backbone from 'backbone'
+import React from 'react'
+import ReactDOM from 'react-dom'
 import $ from 'jquery'
 
 const STORE = {
@@ -6,7 +8,7 @@ const STORE = {
          coffeeName: '',
          coffeeImage: '',
          coffeeRating: '',
-         coffeeShopData: []
+         coffeeShopData: [],
    },
 
    setStore: function(coffeeProp, maindata){
@@ -16,15 +18,15 @@ const STORE = {
       }
 
       this.coffeeData[coffeeProp] = maindata
-      Backbone.Events.trigger('storeChange')
+      Backbone.Events.trigger('shopChange')
    },
 
    getCoffeeData: function(){
       return this.coffeeData
-    }
+   },
 
-    onChange: function(function){
-      Backbone.Events.on('storeChange', function)
+    onChange: function(someFunc){
+      Backbone.Events.on('shopChange', someFunc)
    }
 
 }

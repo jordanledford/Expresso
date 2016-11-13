@@ -20,21 +20,23 @@ const SubmitView = React.createClass({
                  hours: theHours,
                  web: theWeb
            })
-
+           ACTIONS.createNewCoffeeEntry(newCoffeeShop)
+         
    },
    _rateSubmit: function(evt){
-      console.log('clicked')
-         let theRateType = evt.target.dataset.ratetype
-         if(theRateType === 'rate'){
-                  this.setState({rate: this.state.rate + 1})
-            }
+     console.log('clicked')
+        let theRateType = evt.target.dataset.ratetype
+        if(theRateType === 'rate'){
+                 this.setState({rate: this.state.rate + 1})
+           }
 
-   },
+  },
+
       render: function(){
 
          return(
             <div className = "row text-center">
-               <form className = "col-sm-offset-3 col-sm-6" id = "submit-form">
+               <form className = "col-sm-offset-3 col-sm-6" id = "submit-form" onSubmit ={this._submitForm}>
                <a href = "#"><i className = "fa fa-home fa-2x" aria-hidden = "true"></i></a>
                      <h2 className = "">Submit a Coffee Shop</h2>
                   <div className = "form-group">

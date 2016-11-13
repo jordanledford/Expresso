@@ -11,7 +11,7 @@ const UserModel = Backbone.Model.extend({
 
 const UserCollection = Backbone.Collection.extend({
    model: UserModel,
-   url: 'http://localhost:8080/shop'
+   url: 'http://localhost:8080/shop',
 
       initialize: function(){
 
