@@ -24,9 +24,9 @@ const HomeView = React.createClass({
             <h3 className="lead">Expresso helps you find and review coffee shops near you.</h3>
           </div>
           <nav className="breadcrumb">
-            <a className="breadcrumb-item" href="/">Home 	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a>
-            <a className="breadcrumb-item" href="/auth">Log in	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a>
-            <a className="breadcrumb-item" href="/submit">Submit	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a>
+            <a className="breadcrumb-item" href="#">Home 	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a>
+            <a className="breadcrumb-item" href="#user">Log in	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a>
+            <a className="breadcrumb-item" href="#submit">Submit	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a>
           </nav>
         </div>
 
@@ -52,18 +52,18 @@ const ProductView = React.createClass({
 
 
      return(
-          <div className="col-lg-3 col-md-4 col-xs-12">
+          <div className="col-xs-12 col-md-3 col-lg-4 info-details">
             <div>
               <img src="https://unsplash.it/g/300/200"/>
             </div>
             <div className="col-md-6">
               <h3>{this.props.model.get('name')}</h3>
-              <p>Location: {this.props.model.get('location')}</p>
-              <p>Hours: {this.props.model.get('hours')}</p>
-              <p>Website: {this.props.model.get('website')}</p>
-              <p>Description: {this.props.model.get('info')}</p>
+              <p>Location:&nbsp; {this.props.model.get('location')}</p>
+              <p>Hours:&nbsp; {this.props.model.get('hours')}</p>
+              <p>Website:&nbsp; {this.props.model.get('website')}</p>
+              <p>Description:&nbsp; {this.props.model.get('info')}</p>
 
-              <i className="fa fa-thumbs-up fa-4x" aria-hidden="true">{this.props.likes}</i>
+              <i className="fa fa-thumbs-up fa-4x" aria-hidden="true"><p>{this.props.model.get('likes')}</p></i>
             </div>
           </div>
    )

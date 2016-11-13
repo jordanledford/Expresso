@@ -21,8 +21,16 @@ const SubmitView = React.createClass({
                  web: theWeb
            })
            ACTIONS.createNewCoffeeEntry(newCoffeeShop)
-         //   ACTIONS._rateSubmit()
+         
    },
+   _rateSubmit: function(evt){
+     console.log('clicked')
+        let theRateType = evt.target.dataset.ratetype
+        if(theRateType === 'rate'){
+                 this.setState({rate: this.state.rate + 1})
+           }
+
+  },
 
       render: function(){
 
