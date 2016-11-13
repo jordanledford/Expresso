@@ -2,7 +2,7 @@ import Backbone from 'backbone';
 import $ from 'jquery';
 
 const UserModel = Backbone.Model.extend({
-   url: 'http://localhost:8080/shop',
+   url: 'http://localhost:8080/user',
 
       initialize: function(){
 
