@@ -24,7 +24,7 @@ const AppRouter = Backbone.Router.extend({
      ReactDOM.render(<AuthView routedFrom = "AuthView"/>, document.querySelector('#app-container'));
    },
   showHomePage: function(){
-     ReactDOM.render(<HomeView routedFrom = "HomeView"/>, document.querySelector('#app-container'));
+     ReactDOM.render(<HomeView routedFrom = "HomeView"/ >, document.querySelector('#app-container'));
   },
 
   initialize: function(){
