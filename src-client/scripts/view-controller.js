@@ -29,4 +29,3 @@ const AppController = React.createClass({
       }
    }
 })
-//login view, submitView,
