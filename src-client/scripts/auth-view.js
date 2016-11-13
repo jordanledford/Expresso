@@ -12,6 +12,7 @@ const AuthView = React.createClass({
          name: evt.target.name.value,
          password: evt.target.password.value
       }
+      console.log(newUser)
 
       ACTIONS.registerUser(newUser)
    },
@@ -19,19 +20,19 @@ const AuthView = React.createClass({
    render: function(){
 
       return(
-               <div class = "row text-center">
-                  <form class = "col-sm-offset-3 col-sm-6 " id="auth-form" onSubmit = {this._submitAuth}>
-                        <a href = "#"><i class="fa fa-home fa-2x " aria-hidden="true"></i></a>
-                        <h2 class = "">Login or Sign Up</h2>
-                     <div class = "form-group">
-                        <label for = "name">Name </label>
-                        <input type = "text" class="form-control" id="name" placeholder="Enter Name" />
+               <div className = "row text-center">
+                  <form className = "col-sm-offset-3 col-sm-6 " id="auth-form" onSubmit = {this._submitAuth}>
+                        <a href = "#"><i className="fa fa-home fa-2x " aria-hidden="true"></i></a>
+                        <h2 className = "">Login or Sign Up</h2>
+                     <div className = "form-group">
+                        <label htmlFor = "name"> </label>
+                        <input type = "text" className="form-control" id="name" placeholder="Enter Name" />
                      </div>
-                     <div class="form-group">
-                        <label for = "pw">Password </label>
-                        <input type = "password" class="form-control" id="password" placeholder="Enter Password"/>
+                     <div className="form-group">
+                        <label htmlFor = "password"></label>
+                        <input type = "password" className="form-control" id="password" placeholder="Enter Password"/>
                      </div>
-                        <button type = "submit" class="btn btn-default">Submit</button>
+                        <input type = "submit" className="btn btn-default" />
                   </form>
                </div>
             )
