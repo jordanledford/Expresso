@@ -58,4 +58,5 @@ const AppController = React.createClass({
       }
    }
 })
+
 module.exports = AppController
