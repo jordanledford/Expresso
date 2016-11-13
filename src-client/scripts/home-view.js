@@ -24,9 +24,9 @@ const HomeView = React.createClass({
             <h3 className="lead">Expresso helps you find and review coffee shops near you.</h3>
           </div>
           <nav className="breadcrumb">
-            <a className="breadcrumb-item" href="#">Home 	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a>
-            <a className="breadcrumb-item" href="#user">Log in	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a>
-            <a className="breadcrumb-item" href="#submit">Submit	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a>
+            {/* <a className="breadcrumb-item" href="#">Home 	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a> */}
+            <a className="breadcrumb-item" href="#user">Log in	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a>
+            <a className="breadcrumb-item" href="#submit">Submit	&nbsp;</a>
           </nav>
         </div>
 
