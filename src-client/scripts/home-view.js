@@ -52,18 +52,24 @@ const ProductView = React.createClass({
 
 
      return(
-          <div className="col-xs-12 col-md-3 col-lg-4 info-details">
+          <div className="col-xs-12 col-md-3 col-lg-4 ">
             <div>
               <img src="https://unsplash.it/g/300/200"/>
             </div>
-            <div className="col-md-6">
-              <h3>{this.props.model.get('name')}</h3>
-              <p>Location:&nbsp; {this.props.model.get('location')}</p>
-              <p>Hours:&nbsp; {this.props.model.get('hours')}</p>
-              <p>Website:&nbsp; {this.props.model.get('website')}</p>
-              <p>Description:&nbsp; {this.props.model.get('info')}</p>
-
-              <i className="fa fa-thumbs-up fa-4x" aria-hidden="true"><p>{this.props.model.get('likes')}</p></i>
+            <div className="col-xs-12 info-details">
+              <h2>{this.props.model.get('name')}</h2>
+              <p>Location</p>
+               {this.props.model.get('location')}
+              <p>Hours</p>
+               {this.props.model.get('hours')}
+              <p>Website</p>
+               {this.props.model.get('website')}
+              <p>Description</p>
+              {this.props.model.get('info')}
+              <div>
+              <i className="fa fa-thumbs-up fa-4x" aria-hidden="true">
+              <p>{this.props.model.get('likes')}</p></i>
+              </div>
             </div>
           </div>
    )

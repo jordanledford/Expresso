@@ -4,13 +4,14 @@ import {UserModel, UserCollection} from './user-models.js'
 import $ from 'jquery'
 
 const ACTIONS = {
-   registerUser: function(userObj){
+   registerUser: function(newUser){
       let userMod = new UserModel()
-      userMod.set(userObj)
+      userMod.set(newUser)
+      console.log(userMod)
 
       userMod.save().then(function(serverRes){
-         // console.log(serverRes)
-         location.hash = ""
+         console.log(serverRes)
+         location.hash = '';
     })
   },
 
