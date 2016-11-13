@@ -8,23 +8,22 @@ import AuthView from './auth-view.js'
 import {HomeView, ProductView} from './home-view.js'
 import {UserModel, UserCollection} from './user-models.js'
 import ACTIONS from './user-actions.js'
-import STORE from './user-store.js'
 
 const AppRouter = Backbone.Router.extend({
   routes: {
      "submit" : "showSubmitView",
-        "auth": "showAuthPage",
-            "": "showHomePage"
+       "user" : "showAuthPage",
+           "" : "showHomePage"
   },
 
   showSubmitView: function(){
      ReactDOM.render(<SubmitView routedFrom = "SubmitView" />, document.querySelector('#app-container'))
    },
   showAuthPage: function(){
-     ReactDOM.render(<AuthView routedFrom = "AuthView"/>, document.querySelector('#app-container'));
+     ReactDOM.render(<AuthView routedFrom = "AuthView" />, document.querySelector('#app-container'));
    },
   showHomePage: function(){
-     ReactDOM.render(<HomeView routedFrom = "HomeView"/ >, document.querySelector('#app-container'));
+     ReactDOM.render(<HomeView routedFrom = "HomeView" />, document.querySelector('#app-container'));
   },
 
   initialize: function(){

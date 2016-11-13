@@ -2,13 +2,20 @@ import Backbone from 'backbone';
 import $ from 'jquery';
 
 const UserModel = Backbone.Model.extend({
-   url: 'localhost:8080/shop',
+   url: 'http://localhost:8080/shop',
 
+      initialize: function(){
+
+      }
 })
 
 const UserCollection = Backbone.Collection.extend({
    model: UserModel,
-   url: 'localhost:8080/shop'
+   url: 'http://localhost:8080/shop'
+
+      initialize: function(){
+
+      }
 })
 
 module.exports = {

@@ -1,5 +1,4 @@
 const Backbone = require('backbone')
-import {UserModel, UserCollection} from './user-models.js'
 import $ from 'jquery'
 
 const STORE = {

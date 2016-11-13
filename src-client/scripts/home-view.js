@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Backbone from 'backbone';
 import $ from 'jquery'
+import ACTIONS from 'user-actions.js'
 
 const HomeView = React.createClass({
 
   render: function() {
+     console.log('dgljgldjg')
     return (
       <div className="home-container">
 
@@ -36,19 +38,32 @@ const HomeView = React.createClass({
 });
 
 const ProductView = React.createClass({
-  getInitialState: function(){
-    let startingState = {
-      // add shit here
-      // do we even need a starting state for this?
-    }
-    return startingState;
-  },
+   getInitialState: function(){
+      rate: 0;
+   STORE.setStore('coffeeData', [])
+
+   let initialState = this.getCoffeeData()
+   console.log(initialState)
+   return initialState
+ },
+
+ componentWillMount: function(){
+   let self = this
+   STORE.onChange(function(){
+      let newState = STORE.getStoreData()
+      self.setState(newState)
+
+   }
+   console.log('heheheh')
+   ACTIONS.fetchCoffeeData()
+
+ },
 
   render: function(){
      return(
           <div className="col-lg-3 col-md-4 col-xs-12">
             <div>
-              {/* need to insert this.props.data  */}
+              {this.props.coffeeData}
               <img src="https://unsplash.it/g/500/400"/>
             </div>
             <div className="col-md-6">
