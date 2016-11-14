@@ -55,14 +55,9 @@ const SubmitView = React.createClass({
                   <input type = "text" className = "form-control" id = "image" ref="imgInputEl" placeholder = "Enter An Image" />
                 </div>
                 <div className = "form-group">
-                  <label htmlFor = "hours">Info</label>
                   <label htmlFor = "info">Description</label>
                   <input type = "text" className = "form-control" id = "info" ref="infoInputEl" placeholder = "Enter A Description" />
                 </div>
-                {/* <div className = "form-group">
-                  <label for = "web">Rate</label>
-                  <input className = "fa fa-thumbs-up fa-2x" onClick= {this._rateSubmit} data-ratetype = "rate">{this.state.rate}</input>
-                </div> */}
                 <input type = "submit" className = "btn btn-default" />
               </form>
             </div>
