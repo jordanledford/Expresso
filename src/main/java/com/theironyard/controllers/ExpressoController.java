@@ -129,7 +129,6 @@ public class ExpressoController {
         if (id == null || likedShop == null){
             return new ResponseEntity<Shop>(HttpStatus.FORBIDDEN);
         }
-
         Shop shop = shops.findOne(id);
         shop.setLikes(shop.getLikes() + (likedShop ? 1 : -1));
         shops.save(shop);
@@ -139,7 +138,7 @@ public class ExpressoController {
 
     @RequestMapping(path = "/shop", method = RequestMethod.GET)
     public List<Shop> getShops (HttpSession session) {
-         return (List<Shop>) shops.findAll();
+         return shops.findAllByOrderByLikesDesc();
     }
 }
 

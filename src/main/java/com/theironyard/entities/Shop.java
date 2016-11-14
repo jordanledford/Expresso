@@ -34,7 +34,7 @@ public class Shop {
     String info;
 
     @Column()
-    int likes;
+    Double likes;
 
     public Shop() {
     }
@@ -95,15 +95,15 @@ public class Shop {
         this.website = website;
     }
 
-    public int getLikes() {
+    public double getLikes() {
         return likes;
     }
 
-    public void setLikes(int likes) {
+    public void setLikes(double likes) {
         this.likes = likes;
     }
 
-    public Shop(int id, String name, String location, String hours, String website, String image, String info, int likes, User user) {
+    public Shop(int id, String name, String location, String hours, String website, String image, String info, double likes, User user) {
         this.id = id;
         this.name = name;
         this.location = location;
@@ -115,7 +115,7 @@ public class Shop {
         this.user = user;
     }
 
-    public Shop(int id, String name, String location, String hours, String website, String image, String info, int likes) {
+    public Shop(int id, String name, String location, String hours, String website, String image, String info, double likes) {
         this.id = id;
         this.name = name;
         this.location = location;
@@ -126,7 +126,7 @@ public class Shop {
         this.likes = likes;
     }
 
-    public Shop(String name, String location, String hours, String website, String image, String info, int likes, User user) {
+    public Shop(String name, String location, String hours, String website, String image, String info, double likes, User user) {
         this.name = name;
         this.location = location;
         this.hours = hours;
