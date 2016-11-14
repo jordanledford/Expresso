@@ -126,7 +126,7 @@ public class Shop {
         this.likes = likes;
     }
 
-    public Shop(String name, String location, String hours, String website, String image, String info, int likes) {
+    public Shop(String name, String location, String hours, String website, String image, String info, int likes, User user) {
         this.name = name;
         this.location = location;
         this.hours = hours;
@@ -134,6 +134,7 @@ public class Shop {
         this.image = image;
         this.info = info;
         this.likes = likes;
+        this.user = user;
     }
 
     public Shop(String name, String location, String hours, String website, String image, String info) {
