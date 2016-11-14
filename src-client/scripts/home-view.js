@@ -24,12 +24,12 @@ const HomeView = React.createClass({
             <h3 className="lead">Expresso helps you find and review coffee shops near you.</h3>
           </div>
           <nav className="breadcrumb">
-            {/* <a className="breadcrumb-item" href="#">Home 	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a> */}
             <a className="breadcrumb-item" href="#user">Log in	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a>
-            <a className="breadcrumb-item" href="#submit">Submit	&nbsp;</a>
+            <a className="breadcrumb-item" href="#submit">Submit	&nbsp; &nbsp;  &nbsp; &nbsp;   &nbsp;   &nbsp;   </a>
+            <a className="breadcrumb-item" href="#delete-shop">Delete Submission</a>
           </nav>
           <div>
-          
+
           </div>
         </div>
 
@@ -56,7 +56,7 @@ const ProductView = React.createClass({
      return(
           <div className="col-xs-12 col-md-4 col-lg-3 ">
             <div>
-              <img src="https://unsplash.it/g/300/200"/>
+               <img src= {this.props.model.get('img')} />
             </div>
             <div className="col-xs-12 info-details">
               <h2>{this.props.model.get('name')}</h2>
