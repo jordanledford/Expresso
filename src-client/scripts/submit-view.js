@@ -6,7 +6,7 @@ import $ from 'jquery'
 const SubmitView = React.createClass({
 
 
-   _submitForm: function(){
+   _submitForm: function(evt){
       evt.preventDefault()
          let theName = this.refs.nameInputEl.value
          let theLoc = this.refs.locInputEl.value
@@ -22,15 +22,15 @@ const SubmitView = React.createClass({
            })
            ACTIONS.createNewCoffeeEntry(newCoffeeShop)
 
-   },
-   _rateSubmit: function(evt){
-     console.log('clicked')
-        let theRateType = evt.target.dataset.ratetype
-        if(theRateType === 'rate'){
-                 this.setState({rate: this.state.rate + 1})
-           }
-
   },
+  //  _rateSubmit: function(evt){
+  //    console.log('clicked')
+  //       let theRateType = evt.target.dataset.ratetype
+  //       if(theRateType === 'rate'){
+  //                this.setState({rate: this.state.rate + 1})
+  //          }
+
+  // },
 
       render: function(){
 
