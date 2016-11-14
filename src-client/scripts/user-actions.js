@@ -27,7 +27,7 @@ const ACTIONS = {
 
 
    createNewCoffeeEntry: function(newEntry){
-      let newCoffeeEntry = new ShopoModel()
+      let newCoffeeEntry = new ShopModel()
           newCoffeeEntry.set(newEntry)
           newCoffeeEntry.save().then(function(servRes){
            window.location.hash = '';
