@@ -14,7 +14,7 @@ const SubmitView = React.createClass({
           location: this.refs.locInputEl.value,
           hours: this.refs.hoursInputEl.value,
           website: this.refs.webInputEl.value,
-          likes: this.refs.rateInputEl.value,
+          likes: parseInt(this.refs.rateInputEl.value, 10),
           info: this.refs.infoInputEl.value,
           image: this.refs.imgInputEl.value
       }

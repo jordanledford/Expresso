@@ -26,11 +26,7 @@ const AppController = React.createClass({
            let newState = STORE.getCoffeeData()
            self.setState(newState)
        })
-
-
-
     },
-
 
    render: function(){
       console.log("b4 switch", this.state);

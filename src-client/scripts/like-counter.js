@@ -6,6 +6,15 @@ import $ from 'jquery';
 
 const LikeCounter = function(evt){
   // Add .onclick to react FA El not here
+  getInitialState: function() {
+     let startingState = {
+        votes: 0,
+
+     }
+     return startingState
+  },
+  
+
   let Thumb = document.getElementsByClassName('fa')
   Thumb.onClick()
 }
