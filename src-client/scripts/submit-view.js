@@ -12,11 +12,12 @@ const SubmitView = React.createClass({
           theName: this.refs.nameInputEl.value,
           theLoc: this.refs.locInputEl.value,
           theHours: this.refs.hoursInputEl.value,
-          theWeb: this.refs.webInputEl.value
+          theWeb: this.refs.webInputEl.value,
+          theInfo: this.refs.infoInputEl.value,
+          theImg: this.refs.imgInputEl.value
       }
 
            ACTIONS.createNewCoffeeEntry(newEntry)
-
    },
 
       render: function(){
@@ -42,12 +43,20 @@ const SubmitView = React.createClass({
                   <label htmlFor = "web">WebSite</label>
                   <input type = "text" className = "form-control" id = "website" ref="webInputEl" placeholder= "Enter Website" />
                 </div>
+                <div className = "form-group">
+                  <label htmlFor = "image">Image</label>
+                  <input type = "text" className = "form-control" id = "image" ref="imgInputEl" placeholder = "Enter An Image" />
+                </div>
+                <div className = "form-group">
+                  <label htmlFor = "hours">Description</label>
+                  <input type = "text" className = "form-control" id = "info" ref="infoInputEl" placeholder = "Enter A Description" />
+                </div>
                 {/* <div className = "form-group">
                   <label for = "web">Rate</label>
                   <input className = "fa fa-thumbs-up fa-2x" onClick= {this._rateSubmit} data-ratetype = "rate">{this.state.rate}</input>
                 </div> */}
-                     <input type = "submit" className = "btn btn-default" />
-               </form>
+                <input type = "submit" className = "btn btn-default" />
+              </form>
             </div>
          )
       }
