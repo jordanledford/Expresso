@@ -2,7 +2,7 @@
 // thanks google for having a nifty javascript writeup
 // to query for user-location!
 
-function initMap() {
+const initMap = function() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
           zoom: 6
@@ -28,9 +28,16 @@ function initMap() {
           handleLocationError(false, infoWindow, map.getCenter());
         }
       }
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+const handleLocationError = function(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(browserHasGeolocation ?
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
 }
+
+const returnCoffeeShops = function(){
+  let coffeeShops = [];
+  coffeeShops.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" +userLocation+ "keyword=coffee&key=AIzaSyCs5x2Pf3lrXOD0-TVVuEJ1oWSsT_l1_o8");
+  console.log(coffeeShops);
+}
+module.exports {initMap, handleLocationError, returnCoffeeshops}

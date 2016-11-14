@@ -1,21 +1,33 @@
-const Backbone = require('backbone')
-import {UserModel, UserCollection} from './user-models.js'
+import Backbone from 'backbone'
+import React from 'react'
+import ReactDOM from 'react-dom'
 import $ from 'jquery'
 
 const STORE = {
       coffeeData: {
-      coffeeName: '',
-      coffeeImage: '',
-      coffeeRating: '',
-      coffeeShopData: new UserCollection(),
+         coffeeName: '',
+         coffeeImage: '',
+         coffeeRating: '',
+         coffeeShopData: [],
    },
 
-   setStore: function(){
-      return
+   setStore: function(coffeeProp, maindata){
+      if(typeof this.coffeeData[coffeeProp] === 'undefined'){
+         console.error(`This is not a Coffee House, reSubmit your entry`)
+         return
+      }
+
+      this.coffeeData[coffeeProp] = maindata
+      Backbone.Events.trigger('shopChange')
    },
 
    getCoffeeData: function(){
-      return
+      return this.coffeeData
+   },
+
+    onChange: function(someFunc){
+      Backbone.Events.on('shopChange', someFunc)
    }
+
 }
 module.exports = STORE
