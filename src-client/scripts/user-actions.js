@@ -37,7 +37,7 @@ const ACTIONS = {
 
    updateCoffeeLikes: function(newLike){
       let coffeeLikes = new LikeModel();
-         if( user.id.likes < 1){
+         if(id < 1){
             coffeeLikes.set(newLike);
             coffeeLikes.save();
             coffeeLikes.fetch().then(function(){

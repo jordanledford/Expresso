@@ -11,6 +11,9 @@ body {
 	font-family: 'Raleway', sans-serif;
 	background: #BCAAA4;
 }
+img{
+	width: 100%;
+}
 @media screen and (max-width: 768px) {
 	.coffee {
 		display: none;
@@ -37,6 +40,9 @@ body {
 			background: #BCAAA4;
 		}
 	}
+	img{
+		width: 50%;
+	}
 	h1 {
 	 color: #ff5252;
 	 font-size: 70px;
@@ -58,6 +64,7 @@ body {
 	.fa {
 	 color: #ff5252;
 	}
+
 }
 
 #submit-form, #auth-form{

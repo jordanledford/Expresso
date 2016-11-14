@@ -55,7 +55,7 @@ const ProductView = React.createClass({
          shopId: '',
          likedShop: true
       }
-      ACTIONS.updateCoffeeLikes(newLikes)
+      ACTIONS.updateCoffeeLikes(newLikeData)
 
 },
 
