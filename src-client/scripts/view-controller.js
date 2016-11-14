@@ -11,7 +11,6 @@ import AuthView from './auth-view.js'
 const AppController = React.createClass({
    getInitialState: function(){
       let data = ACTIONS.fetchCoffeeData()
-      rate: 0;
       STORE.setStore('coffeeShopData', data)
 
       let initialState = STORE.getCoffeeData()
@@ -27,11 +26,7 @@ const AppController = React.createClass({
            let newState = STORE.getCoffeeData()
            self.setState(newState)
        })
-
-
-
     },
-
 
    render: function(){
       console.log("b4 switch", this.state);

@@ -10,6 +10,7 @@ const UserModel = Backbone.Model.extend({
 })
 
 const ShopModel = Backbone.Model.extend({
+   model: UserModel,
    url: 'http://localhost:8080/shop',
 
       initialize: function(){
