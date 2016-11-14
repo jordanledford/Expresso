@@ -29,7 +29,7 @@ const ACTIONS = {
    createNewCoffeeEntry: function(newEntry){
       let newCoffeeEntry = new ShopModel()
           newCoffeeEntry.set(newEntry)
-          newCoffeeEntry.save().then(function(servRes){
+          return newCoffeeEntry.save().then(function(){
            window.location.hash = '';
       })
    }
