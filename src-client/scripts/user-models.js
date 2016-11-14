@@ -28,6 +28,7 @@ const UserCollection = Backbone.Collection.extend({
 
 module.exports = {
    UserModel,
-   UserCollection
+   UserCollection,
+   ShopModel
 
 }

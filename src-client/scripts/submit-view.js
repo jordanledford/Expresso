@@ -2,35 +2,22 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 const Backbone = require('backbone')
 import $ from 'jquery'
-
+import ACTIONS from './user-actions.js'
 const SubmitView = React.createClass({
 
 
-   _submitForm: function(){
+   _submitForm: function(evt){
       evt.preventDefault()
-         let theName = this.refs.nameInputEl.value
-         let theLoc = this.refs.locInputEl.value
-         let theHours = this.refs.hoursInputEl.value
-         let theWeb = this.refs.webInputEl.value
+      let newEntry = {
+          theName: this.refs.nameInputEl.value,
+          theLoc: this.refs.locInputEl.value,
+          theHours: this.refs.hoursInputEl.value,
+          theWeb: this.refs.webInputEl.value
+      }
 
-           let newCoffeeShop =
-               newCoffeeShop.set({
-                 name: theName,
-                 loc: theLoc,
-                 hours: theHours,
-                 web: theWeb
-           })
-           ACTIONS.createNewCoffeeEntry(newCoffeeShop)
+           ACTIONS.createNewCoffeeEntry(newEntry)
 
    },
-   _rateSubmit: function(evt){
-     console.log('clicked')
-        let theRateType = evt.target.dataset.ratetype
-        if(theRateType === 'rate'){
-                 this.setState({rate: this.state.rate + 1})
-           }
-
-  },
 
       render: function(){
 
@@ -59,7 +46,7 @@ const SubmitView = React.createClass({
                   <label for = "web">Rate</label>
                   <input className = "fa fa-thumbs-up fa-2x" onClick= {this._rateSubmit} data-ratetype = "rate">{this.state.rate}</input>
                 </div> */}
-                     <input type = "submit" className = "btn btn-default" onClick = {this._submitForm} />
+                     <input type = "submit" className = "btn btn-default" />
                </form>
             </div>
          )
