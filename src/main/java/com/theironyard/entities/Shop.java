@@ -15,25 +15,25 @@ public class Shop {
     @GeneratedValue
     int id;
 
-    @Column(nullable = false)
+    @Column()
     String name;
 
-    @Column(nullable = false)
+    @Column()
     String location;
 
-    @Column(nullable = false)
+    @Column()
     String hours;
 
-    @Column(nullable = false)
+    @Column()
     String website;
 
-    @Column(nullable = false)
+    @Column()
     String image;
 
-    @Column(nullable = false)
+    @Column()
     String info;
 
-    @Column(nullable = false)
+    @Column()
     int likes;
 
     public Shop() {
@@ -126,7 +126,7 @@ public class Shop {
         this.likes = likes;
     }
 
-    public Shop(String name, String location, String hours, String website, String image, String info, int likes) {
+    public Shop(String name, String location, String hours, String website, String image, String info, int likes, User user) {
         this.name = name;
         this.location = location;
         this.hours = hours;
@@ -134,8 +134,17 @@ public class Shop {
         this.image = image;
         this.info = info;
         this.likes = likes;
+        this.user = user;
     }
 
+    public Shop(String name, String location, String hours, String website, String image, String info) {
+        this.name = name;
+        this.location = location;
+        this.hours = hours;
+        this.website = website;
+        this.image = image;
+        this.info = info;
+    }
 
     @ManyToOne
     User user;
