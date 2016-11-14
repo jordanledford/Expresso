@@ -49,7 +49,9 @@ public class ExpressoController {
         if (shops.count() == 0) {
             User user = new User("Bekah", PasswordStorage.createHash("TrumpTrain"));
             users.save(user);
-            shops.save(new Shop("Starbucks Coffee", "King Street - Charleston, SC", "5am - 10pm", "https://www.starbucks.com/", "https://www.google.com/search?q=starbucks&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiVncPQjqTQAhVixlQKHcKjCIMQ_AUICigD&biw=1280&bih=703#imgrc=kK0DWhTQx81B6M%3A", "Seattle-based coffeehouse chain known for its signature roasts, light bites and WiFi availability.", 12));
+            shops.save(new Shop("Kudu", "4 Vanderhorst St, Charleston, SC 29403", "6:45am - 9pm", "http://www.kuducoffeeandcraftbeer.com/", "http://www.kuducoffeeandcraftbeer.com/sites/default/files/styles/photo_1024/public/photos/IMG_5770.jpg?itok=e5xyC6f3", "Hip coffeehouse with a courtyard patio also serves craft beers & hosts live music on the weekends.", 3));
+            shops.save(new Shop("City Lights Coffee", "141 Market St, Charleston, SC 29401", "7am - 7:30pm", "https://www.facebook.com/citylightcoffee/", "http://www.anafterthought.com/plugins/elfinder/files/IMG_5509.jpg", "Drip, French press, espresso & tea drinks with cafe breakfast & lunch fare in artful digs with WiFi.", 5));
+            shops.save(new Shop("Starbucks Coffee", "King Street - Charleston, SC", "5am - 10pm", "https://www.starbucks.com/", "https://www.google.com/search?q=starbucks&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiVncPQjqTQAhVixlQKHcKjCIMQ_AUICigD&biw=1280&bih=703#imgrc=kK0DWhTQx81B6M%3A", "Seattle-based coffeehouse chain known for its signature roasts, light bites and WiFi availability.", 23));
             shops.save(new Shop("Collective Coffee Co", "Mt. Pleasant, SC", "7am - 5pm", "http://collective-coffee.com/", "https://static.squarespace.com/static/50f1db62e4b0ceb75bca6fdd/t/51044ad8e4b00bb1fb60cc11/1359235800677/Counter%20Collective%20Fix-3220%20bg.jpg", "A modern feel with quaint taste.", 7));
         }
     }

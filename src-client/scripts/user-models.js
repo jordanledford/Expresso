@@ -26,10 +26,18 @@ const UserCollection = Backbone.Collection.extend({
 
       }
 })
+const LikeModel = Backbone.Model.extend({
+  url: 'http://localhost:8080/like-shop',
+
+      initialize: function(){
+
+      }
+})
 
 module.exports = {
    UserModel,
    UserCollection,
-   ShopModel
+   ShopModel,
+   LikeModel
 
 }

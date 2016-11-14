@@ -56,6 +56,7 @@ const SubmitView = React.createClass({
                 </div>
                 <div className = "form-group">
                   <label htmlFor = "hours">Info</label>
+                  <label htmlFor = "info">Description</label>
                   <input type = "text" className = "form-control" id = "info" ref="infoInputEl" placeholder = "Enter A Description" />
                 </div>
                 {/* <div className = "form-group">

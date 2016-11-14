@@ -52,18 +52,18 @@ const ProductView = React.createClass({
 
 
      return(
-          <div className="col-xs-12 col-md-3 col-lg-4 ">
+          <div className="col-xs-12 col-md-4 col-lg-3 ">
             <div>
               <img src="https://unsplash.it/g/300/200"/>
             </div>
             <div className="col-xs-12 info-details">
               <h2>{this.props.model.get('name')}</h2>
               <p>Location</p>
-               {this.props.model.get('location')}
+              {this.props.model.get('location')}
               <p>Hours</p>
-               {this.props.model.get('hours')}
+              {this.props.model.get('hours')}
               <p>Website</p>
-               {this.props.model.get('website')}
+              {this.props.model.get('website')}
               <p>Description</p>
               {this.props.model.get('info')}
               <div>
