@@ -29,6 +29,7 @@ const ACTIONS = {
    createNewCoffeeEntry: function(newEntry){
       let newCoffeeEntry = new ShopModel()
           newCoffeeEntry.set(newEntry)
+          console.log('submit', newCoffeeEntry)
           return newCoffeeEntry.save().then(function(){
            window.location.hash = '';
       })
