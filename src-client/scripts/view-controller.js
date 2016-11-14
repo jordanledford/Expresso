@@ -4,7 +4,7 @@ import $ from 'jquery'
 
 import ACTIONS from './user-actions.js'
 import STORE from './user-store.js'
-import {HomeView, ProductView} from './home-view.js'
+import {HomeView, ProductView, ShopModel} from './home-view.js'
 import SubmitView from './submit-view.js'
 import AuthView from './auth-view.js'
 

@@ -6,7 +6,7 @@ import $ from 'jquery';
 import SubmitView from './submit-view.js'
 import AuthView from './auth-view.js'
 import {HomeView, ProductView} from './home-view.js'
-import {UserModel, UserCollection} from './user-models.js'
+import {UserModel, ShopModel, UserCollection} from './user-models.js'
 import ACTIONS from './user-actions.js'
 import AppController from './view-controller.js'
 

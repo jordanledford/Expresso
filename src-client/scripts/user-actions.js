@@ -1,6 +1,6 @@
 const Backbone = require('backbone')
 import STORE from './user-store.js'
-import {UserModel, UserCollection} from './user-models.js'
+import {UserModel, ShopModel, UserCollection} from './user-models.js'
 import $ from 'jquery'
 
 const ACTIONS = {
@@ -27,7 +27,7 @@ const ACTIONS = {
 
 
    createNewCoffeeEntry: function(newEntry){
-      let newCoffeeEntry = new UserModel()
+      let newCoffeeEntry = new ShopModel()
           newCoffeeEntry.set(newEntry)
           newCoffeeEntry.save().then(function(servRes){
            window.location.hash = '';

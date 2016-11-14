@@ -9,6 +9,14 @@ const UserModel = Backbone.Model.extend({
       }
 })
 
+const ShopModel = Backbone.Model.extend({
+   url: 'http://localhost:8080/shop',
+
+      initialize: function(){
+
+      }
+})
+
 const UserCollection = Backbone.Collection.extend({
    model: UserModel,
    url: 'http://localhost:8080/shop',

@@ -59,7 +59,7 @@ const SubmitView = React.createClass({
                   <label for = "web">Rate</label>
                   <input className = "fa fa-thumbs-up fa-2x" onClick= {this._rateSubmit} data-ratetype = "rate">{this.state.rate}</input>
                 </div> */}
-                     <button type = "submit" className = "btn btn-default" onClick = {this._submitForm}>Submit</button>
+                     <input type = "submit" className = "btn btn-default" onClick = {this._submitForm} />
                </form>
             </div>
          )
