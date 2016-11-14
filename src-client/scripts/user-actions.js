@@ -1,6 +1,6 @@
 const Backbone = require('backbone')
 import STORE from './user-store.js'
-import {UserModel, ShopModel, UserCollection} from './user-models.js'
+import {UserModel, ShopModel, UserCollection, LikeModel} from './user-models.js'
 import $ from 'jquery'
 
 const ACTIONS = {
@@ -16,24 +16,38 @@ const ACTIONS = {
   },
 
    fetchCoffeeData: function(){
-      let coffeeCollInstance = new UserCollection()
+      let coffeeCollInstance = new UserCollection();
          coffeeCollInstance.fetch().then(function(){
-            STORE.setStore('coffeeShopData', coffeeCollInstance)
+            STORE.setStore('coffeeShopData', coffeeCollInstance);
 
-            console.log('fetch ', coffeeCollInstance)
+            console.log('fetch ', coffeeCollInstance);
       })
       return coffeeCollInstance
    },
 
 
    createNewCoffeeEntry: function(newEntry){
-      let newCoffeeEntry = new ShopModel()
-          newCoffeeEntry.set(newEntry)
-          console.log('submit', newCoffeeEntry)
+      let newCoffeeEntry = new ShopModel();
+          newCoffeeEntry.set(newEntry);
+          console.log('submit', newCoffeeEntry);
           return newCoffeeEntry.save().then(function(){
            window.location.hash = '';
       })
-   }
+   },
+
+   updateCoffeeLikes: function(newLike){
+      let coffeeLikes = new LikeModel();
+         if( user.id.likes < 1){
+            coffeeLikes.set(newLike);
+            coffeeLikes.save();
+            coffeeLikes.fetch().then(function(){
+               STORE.setStore('newLikeData', coffeeLikes);
+            })
+         } else {
+            console.log('You have already submitted a like on this shop!!!');
+         }
+      }
+
 }
 
 module.exports = ACTIONS

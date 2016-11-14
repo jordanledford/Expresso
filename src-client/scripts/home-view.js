@@ -24,9 +24,9 @@ const HomeView = React.createClass({
             <h3 className="lead">Expresso helps you find and review coffee shops near you.</h3>
           </div>
           <nav className="breadcrumb">
-            {/* <a className="breadcrumb-item" href="#">Home 	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a> */}
             <a className="breadcrumb-item" href="#user">Log in	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a>
-            <a className="breadcrumb-item" href="#submit">Submit	&nbsp;</a>
+            <a className="breadcrumb-item" href="#submit">Submit	&nbsp; &nbsp;  &nbsp; &nbsp;   &nbsp;   &nbsp;   </a>
+            <a className="breadcrumb-item" href="#delete-shop">Remove Submission</a>
           </nav>
           <div>
 
@@ -49,14 +49,21 @@ const HomeView = React.createClass({
 });
 
 const ProductView = React.createClass({
+
+    _updateLikes: function(){
+      let newLikeData = {
+         shopId: '',
+         likedShop: true
+      }
+      ACTIONS.updateCoffeeLikes(newLikes)
+
+},
+
   render: function(){
-
-
-
      return(
           <div className="col-xs-12 col-md-4 col-lg-3 ">
             <div>
-              {/* <img src= {this.props.model.get('img')} /> */}
+              <img src= {this.props.model.get('image')} />
             </div>
             <div className="col-xs-12 info-details">
               <h2>{this.props.model.get('name')}</h2>
@@ -69,8 +76,8 @@ const ProductView = React.createClass({
               <p>Description</p>
               {this.props.model.get('info')}
               <div>
-                <i className="fa fa-thumbs-up fa-4x" aria-hidden="true">
-              <p>{this.props.model.get('likes')}</p></i>
+                <i className="fa fa-thumbs-up fa-4x" aria-hidden="true" onClick = {this._updateLikes}>
+                  <p>{this.props.model.get('likes')}</p></i>
               </div>
             </div>
           </div>

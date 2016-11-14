@@ -5,9 +5,6 @@ import $ from 'jquery'
 
 const STORE = {
       coffeeData: {
-         coffeeName: '',
-         coffeeImage: '',
-         coffeeRating: '',
          coffeeShopData: [],
    },
 
