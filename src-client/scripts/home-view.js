@@ -28,10 +28,12 @@ const HomeView = React.createClass({
             <a className="breadcrumb-item" href="#user">Log in	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;</a>
             <a className="breadcrumb-item" href="#submit">Submit	&nbsp;</a>
           </nav>
+          <div>
+          
+          </div>
         </div>
 
         <div className="container">
-
           <div className="row">
 
             { products }
