@@ -1,8 +1,9 @@
-const React = require('react')
-const ReactDOM = require('react-dom')
-const Backbone = require('backbone')
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Backbone from 'backbone'
 import $ from 'jquery'
 import ACTIONS from './user-actions.js'
+
 const SubmitView = React.createClass({
 
 
@@ -12,7 +13,9 @@ const SubmitView = React.createClass({
           theName: this.refs.nameInputEl.value,
           theLoc: this.refs.locInputEl.value,
           theHours: this.refs.hoursInputEl.value,
-          theWeb: this.refs.webInputEl.value
+          theWeb: this.refs.webInputEl.value,
+          theDesc: this.refs.descInputEl.value,
+          theRate: this.refs.rateInputEl.value
       }
 
            ACTIONS.createNewCoffeeEntry(newEntry)
@@ -28,19 +31,27 @@ const SubmitView = React.createClass({
                 <h2 className = "">Submit a Coffee Shop</h2>
                 <div className = "form-group">
                   <label htmlFor = "name">Shop Name</label>
-                  <input type = "text" className = "form-control" id = "shop-name" ref="nameInputEl" placeholder = "Enter Shop Name" />
+                  <input type = "text" className = "form-control" name = "theName" ref="nameInputEl" placeholder = "Enter Shop Name" />
                 </div>
                 <div className = "form-group">
                   <label htmlFor = "loc">Location</label>
-                  <input type = "text" className = "form-control" id = "location" ref="locInputEl" placeholder = "Enter Location" />
+                  <input type = "text" className = "form-control" name = "theLoc" ref="locInputEl" placeholder = "Enter Location" />
                 </div>
                 <div className = "form-group">
                   <label htmlFor = "hours">Shop Hours</label>
-                  <input type = "text" className = "form-control" id = "shop-hours" ref="hoursInputEl" placeholder = "Enter Shop Hours" />
+                  <input type = "text" className = "form-control" name = "theHours" ref="hoursInputEl" placeholder = "Enter Shop Hours" />
                 </div>
                 <div className = "form-group">
                   <label htmlFor = "web">WebSite</label>
-                  <input type = "text" className = "form-control" id = "website" ref="webInputEl" placeholder= "Enter Website" />
+                  <input type = "text" className = "form-control" name = "theWeb" ref="webInputEl" placeholder= "Enter Website" />
+                </div>
+                <div className = "form-group">
+                  <label htmlFor = "web">Description</label>
+                  <input type = "text" className = "form-control" name = "theDesc" ref="descInputEl" placeholder= "Enter Description" />
+                </div>
+                <div className = "form-group">
+                  <label htmlFor = "web">Rating</label>
+                  <input type = "text" className = "form-control" name = "theRate" ref="rateInputEl" placeholder= "Enter Rating" />
                 </div>
                 {/* <div className = "form-group">
                   <label for = "web">Rate</label>
