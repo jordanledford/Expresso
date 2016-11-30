@@ -75,7 +75,7 @@ const ProductView = React.createClass({
               {this.props.model.get('website')}
               <p>Description</p>
               {this.props.model.get('info')}
-              <div>
+              <div className="like-wrapper">
                 <i className="fa fa-thumbs-up fa-4x" aria-hidden="true" onClick = {this._updateLikes}>
                   <p>{this.props.model.get('likes')}</p></i>
               </div>
