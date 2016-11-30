@@ -63,7 +63,7 @@ const ProductView = React.createClass({
      return(
           <div className="col-xs-12 col-md-4 col-lg-3 ">
             <div>
-               <img src= {this.props.model.get('image')} />
+              <img src= {this.props.model.get('image')} />
             </div>
             <div className="col-xs-12 info-details">
               <h2>{this.props.model.get('name')}</h2>
@@ -75,9 +75,9 @@ const ProductView = React.createClass({
               {this.props.model.get('website')}
               <p>Description</p>
               {this.props.model.get('info')}
-              <div>
-              <i className="fa fa-thumbs-up fa-4x" aria-hidden="true" onClick = {this._updateLikes}>
-              <p>{this.props.model.get('likes')}</p></i>
+              <div className="like-wrapper">
+                <i className="fa fa-thumbs-up fa-4x" aria-hidden="true" onClick = {this._updateLikes}>
+                  <p>{this.props.model.get('likes')}</p></i>
               </div>
             </div>
           </div>
